@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thuc_Tap_Giai_Doan_1</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/shopdetail.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="header-container" >
+        <div class="header-row" style="padding: 20px;">
+
+            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+                <form action="" class="site-block-top-search">
+                    <span class="icon icon-search2"></span>
+                    <input type="text" class="form-control border-0" placeholder="Search">
+                </form>
+            </div>
+            
+            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                <div class="site-logo">
+                    <a href="index.html" class="js-logo-clone">SNEAKER SQUARE</a>
+                </div>
+            </div>
+            
+            <div class="col-6 col-md-4 order-3 order-md-3 text-left">
+                <div class="site-top-icons">
+                    <ul>
+                        <li><a href="#"><span class="icon icon-user"></span></a></li>
+                        <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                        <li><a href="#" class="icon-cart"><span class="icon icon-shopping-cart"></span></a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <nav id="menu"></nav>
+
+    <a href="#top" class="icontop">&#8657;</a>
+    <div class="container">
+        <main class="detail-row">
+            <!-- Chi tiết sản phẩm sẽ được hiển thị ở đây -->
+        </main>
+        <section id="sphot" >
+            <div class="site-section-heading ">
+                <h2 >Sản phẩm nổi bật  </h2>
+            </div>
+        <div id="data"></div> 
+         </section>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-sections">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-contact">
+                        <li><i class="icon-room"></i> 123 Street, City, Country</li>
+                        <li><i class="icon-phone"></i> +123 456 7890</li>
+                        <li><i class="icon-envelope"></i> info@example.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Subscribe</h3>
+                    <form action="#" method="post" class="subscribe-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">Send Mail</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © <script>document.write(new Date().getFullYear());</script></p>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script type="module">
+    (async () => {
+        const { hien_thi_chi_tiet_sp, lay_loai , lay_sp_hot} = await import('./js/app.js');
+        
+        // Gọi hàm để hiển thị chi tiết sản phẩm
+        await hien_thi_chi_tiet_sp();
+        
+        let loai_html = await lay_loai();
+        document.querySelector("#menu").innerHTML = loai_html;
+        document.querySelector("#sphot #data").innerHTML= await lay_sp_hot(3)
+    })();
+</script>

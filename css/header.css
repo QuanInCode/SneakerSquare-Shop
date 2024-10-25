@@ -1,0 +1,143 @@
+/* General styling for the container */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #fff;
+    width: 100%;
+}
+
+/* Flex container to align all elements properly */
+.header-row {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+/* Logo chính giữa */
+.site-logo {
+    flex: 1;
+    text-align: center;
+}
+
+.site-logo a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+/* Thanh tìm kiếm bên trái */
+.site-search-icon {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.site-search-icon input {
+    border: none;
+    font-size: 16px;
+    color: gray;
+    margin-left: 10px;
+    width: 100%;
+    max-width: 300px; /* Giới hạn chiều rộng tối đa */
+}
+
+/* Icons bên phải */
+.site-top-icons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.site-top-icons ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-top-icons ul li {
+    margin-left: 15px;
+}
+
+.site-top-icons ul li a {
+    font-size: 24px;
+    color: gray;
+    text-decoration: none;
+}
+
+/* Định dạng cho icon giỏ hàng */
+.site-top-icons ul li .icon-cart {
+    position: relative;
+}
+
+.site-top-icons ul li .icon-cart::after {
+    content: '2'; /* Số lượng sản phẩm */
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #6c63ff;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 6px;
+    font-size: 12px;
+    line-height: 1;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1024px) {
+    .row {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .site-logo {
+        order: 1;
+        margin-bottom: 10px;
+    }
+
+    .site-search-icon {
+        order: 2;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .site-top-icons {
+        order: 3;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-search-icon input {
+        max-width: 100%; /* Đảm bảo input chiếm hết chiều ngang */
+    }
+
+    .site-logo a {
+        font-size: 20px;
+    }
+
+    .site-top-icons ul li a {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-logo a {
+        padding: 8px 16px;
+    }
+    
+    .site-search-icon input {
+        font-size: 14px;
+    }
+}
